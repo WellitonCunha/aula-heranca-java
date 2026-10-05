@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herança em Java - POO</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="presentation">
+
+    <!-- SLIDE 1 -->
+    <section class="slide active center">
+        <h1>Herança em Java</h1>
+        <p class="subtitle">
+            Programação Orientada a Objetos
+        </p>
+        <p class="small">
+            Unifacimp
+        </p>
+        <p class="small">
+            Prof. Esp. Welliton Cunha
+        </p>
+
+        <br>
+
+        <p>
+            <span class="highlight">Reutilizando código</span>,
+            especializando classes e criando relações entre objetos.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 2 -->
+    <section class="slide">
+        <h2>Objetivos da aula</h2>
+
+        <ul>
+            <li>Entender o conceito de herança em POO.</li>
+            <li>Diferenciar superclasse e subclasse.</li>
+            <li>Utilizar <span class="highlight">extends</span> em Java.</li>
+            <li>Utilizar o <span class="highlight">super</span>.</li>
+            <li>Entender sobrescrita de métodos.</li>
+            <li>Aplicar herança em exemplos práticos.</li>
+            <li>Identificar quando utilizar herança.</li>
+        </ul>
+    </section>
+
+
+    <!-- SLIDE 3 -->
+    <section class="slide">
+        <h2>O que é Herança?</h2>
+
+        <p>
+            Herança é um mecanismo da Programação Orientada a Objetos
+            que permite que uma classe <span class="highlight">herde características
+            e comportamentos</span> de outra classe.
+        </p>
+
+        <br>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Superclasse</h3>
+                <p>
+                    Classe mais geral, que fornece atributos e métodos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Subclasse</h3>
+                <p>
+                    Classe especializada que herda características da superclasse.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SLIDE 4 -->
+    <section class="slide center">
+        <h2>Exemplo do mundo real</h2>
+
+        <div class="diagram">
+
+            <div class="box">
+                Pessoa
+            </div>
+
+            <div class="arrow">
+                ↓
+            </div>
+
+            <div style="display:flex; gap:20px;">
+                <div class="box">Aluno</div>
+                <div class="box">Professor</div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <p>
+            Todo <span class="highlight">Aluno</span> é uma
+            <span class="highlight">Pessoa</span>.
+        </p>
+
+        <p>
+            Todo <span class="highlight">Professor</span> também é uma
+            <span class="highlight">Pessoa</span>.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 5 -->
+    <section class="slide">
+        <h2>Por que utilizar Herança?</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>♻️ Reutilização</h3>
+                <p>
+                    Evita duplicação de código.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Especialização</h3>
+                <p>
+                    Permite criar classes mais específicas.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🧹 Organização</h3>
+                <p>
+                    Centraliza características comuns.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🔧 Manutenção</h3>
+                <p>
+                    Alterações na superclasse podem beneficiar subclasses.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SLIDE 6 -->
+    <section class="slide">
+        <h2>Palavra-chave extends</h2>
+
+        <p>
+            Em Java, utilizamos <span class="highlight">extends</span>
+            para indicar que uma classe herda outra.
+        </p>
+
+        <pre><code>class Pessoa {
+
+    String nome;
+    int idade;
+
+}
+
+class Aluno extends Pessoa {
+
+    String matricula;
+
+}</code></pre>
+
+        <br>
+
+        <p>
+            A classe <span class="green">Aluno</span> possui
+            seus próprios atributos e também recebe os atributos
+            herdados de <span class="highlight">Pessoa</span>.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 7 -->
+    <section class="slide">
+        <h2>Superclasse × Subclasse</h2>
+
+        <div class="two-columns">
+
+            <div class="card">
+                <h3>Superclasse</h3>
+
+                <ul>
+                    <li>Classe mais genérica</li>
+                    <li>Possui características comuns</li>
+                    <li>É utilizada como base</li>
+                </ul>
+
+                <pre><code>class Pessoa {
+
+    String nome;
+    int idade;
+
+}</code></pre>
+            </div>
+
+            <div class="card">
+                <h3>Subclasse</h3>
+
+                <ul>
+                    <li>Classe mais específica</li>
+                    <li>Herda da superclasse</li>
+                    <li>Pode adicionar novos recursos</li>
+                </ul>
+
+                <pre><code>class Aluno extends Pessoa {
+
+    String matricula;
+
+}</code></pre>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SLIDE 8 -->
+    <section class="slide">
+        <h2>Exemplo prático</h2>
+
+        <pre><code>class Pessoa {
+
+    String nome;
+
+    void apresentar() {
+        System.out.println(
+            "Olá, meu nome é " + nome
+        );
+    }
+}
+
+class Aluno extends Pessoa {
+
+    String curso;
+}</code></pre>
+
+        <br>
+
+        <pre><code>Aluno aluno = new Aluno();
+
+aluno.nome = "Carlos";
+aluno.curso = "Sistemas de Informação";
+
+aluno.apresentar();</code></pre>
+
+        <p class="green">
+            O método apresentar() foi herdado!
+        </p>
+    </section>
+
+
+    <!-- SLIDE 9 -->
+    <section class="slide">
+        <h2>O que é herdado?</h2>
+
+        <p>Uma subclasse pode utilizar membros acessíveis da superclasse.</p>
+
+        <br>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>✓ Métodos</h3>
+                <p>
+                    Comportamentos definidos na superclasse.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>✓ Atributos</h3>
+                <p>
+                    Características acessíveis da superclasse.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>✓ Comportamentos</h3>
+                <p>
+                    A subclasse pode reutilizar funcionalidades.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>✗ Construtores</h3>
+                <p>
+                    Construtores não são herdados.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SLIDE 10 -->
+    <section class="slide">
+        <h2>A palavra-chave super</h2>
+
+        <p>
+            <span class="highlight">super</span> representa uma referência
+            à superclasse.
+        </p>
+
+        <pre><code>class Pessoa {
+
+    String nome;
+
+    Pessoa(String nome) {
+        this.nome = nome;
+    }
+}
+
+class Aluno extends Pessoa {
+
+    String curso;
+
+    Aluno(String nome, String curso) {
+
+        super(nome);
+
+        this.curso = curso;
+    }
+}</code></pre>
+
+        <p>
+            <span class="yellow">super(nome)</span> chama o construtor
+            da classe Pessoa.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 11 -->
+    <section class="slide">
+        <h2>Por que usar super()?</h2>
+
+        <p>
+            Imagine que a superclasse possui informações que precisam
+            ser inicializadas.
+        </p>
+
+        <pre><code>class Pessoa {
+
+    String nome;
+
+    Pessoa(String nome) {
+        this.nome = nome;
+    }
+}</code></pre>
+
+        <p>
+            A subclasse pode delegar essa inicialização:
+        </p>
+
+        <pre><code>class Aluno extends Pessoa {
+
+    Aluno(String nome) {
+
+        super(nome);
+
+    }
+}</code></pre>
+    </section>
+
+
+    <!-- SLIDE 12 -->
+    <section class="slide">
+        <h2>Sobrescrita de métodos</h2>
+
+        <p>
+            Uma subclasse pode modificar o comportamento de um método
+            herdado.
+        </p>
+
+        <p>
+            Isso é chamado de <span class="highlight">sobrescrita
+            (override)</span>.
+        </p>
+
+        <pre><code>class Animal {
+
+    void emitirSom() {
+        System.out.println("Som");
+    }
+}
+
+class Cachorro extends Animal {
+
+    @Override
+    void emitirSom() {
+        System.out.println("Au Au!");
+    }
+}</code></pre>
+    </section>
+
+
+    <!-- SLIDE 13 -->
+    <section class="slide">
+        <h2>@Override</h2>
+
+        <p>
+            A anotação <span class="highlight">@Override</span>
+            informa ao compilador que estamos sobrescrevendo um método.
+        </p>
+
+        <pre><code>class Animal {
+
+    void emitirSom() {
+        System.out.println("Som genérico");
+    }
+}
+
+class Gato extends Animal {
+
+    @Override
+    void emitirSom() {
+        System.out.println("Miau!");
+    }
+}</code></pre>
+
+        <p class="green">
+            Boa prática: utilize @Override ao sobrescrever métodos.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 14 -->
+    <section class="slide">
+        <h2>Exemplo completo</h2>
+
+        <pre><code>class Animal {
+
+    String nome;
+
+    void dormir() {
+        System.out.println(nome + " está dormindo.");
+    }
+
+    void emitirSom() {
+        System.out.println("Som...");
+    }
+}
+
+class Cachorro extends Animal {
+
+    @Override
+    void emitirSom() {
+        System.out.println("Au Au!");
+    }
+}
+
+class Gato extends Animal {
+
+    @Override
+    void emitirSom() {
+        System.out.println("Miau!");
+    }
+}</code></pre>
+    </section>
+
+
+    <!-- SLIDE 15 -->
+    <section class="slide">
+        <h2>Testando as subclasses</h2>
+
+        <pre><code>public class Main {
+
+    public static void main(String[] args) {
+
+        Cachorro cachorro = new Cachorro();
+        cachorro.nome = "Rex";
+
+        Gato gato = new Gato();
+        gato.nome = "Mimi";
+
+        cachorro.dormir();
+        cachorro.emitirSom();
+
+        gato.dormir();
+        gato.emitirSom();
+    }
+}</code></pre>
+
+        <p class="green">
+            Cada classe possui seu próprio comportamento.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 16 -->
+    <section class="slide">
+        <h2>Herança e especialização</h2>
+
+        <p>
+            A ideia principal é:
+        </p>
+
+        <br>
+
+        <div class="diagram">
+
+            <div class="box">
+                Animal
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div style="display:flex; gap:20px;">
+                <div class="box">Cachorro</div>
+                <div class="box">Gato</div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <p>
+            <span class="highlight">Animal</span> possui comportamentos
+            comuns.
+        </p>
+
+        <p>
+            <span class="highlight">Cachorro</span> e
+            <span class="highlight">Gato</span> especializam esses
+            comportamentos.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 17 -->
+    <section class="slide">
+        <h2>Herança com protected</h2>
+
+        <p>
+            O modificador <span class="highlight">protected</span>
+            permite acesso pela própria classe e pelas subclasses.
+        </p>
+
+        <pre><code>class Pessoa {
+
+    protected String nome;
+
+}
+
+class Aluno extends Pessoa {
+
+    void mostrarNome() {
+
+        System.out.println(nome);
+
+    }
+}</code></pre>
+
+        <p>
+            Entretanto, em projetos reais, normalmente devemos avaliar
+            cuidadosamente se o uso direto de atributos é realmente necessário.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 18 -->
+    <section class="slide">
+        <h2>Herança não é copiar e colar</h2>
+
+        <p>
+            Herança representa uma relação:
+        </p>
+
+        <br>
+
+        <div class="card">
+            <h3>É um</h3>
+
+            <p>
+                Um Cachorro <strong>é um</strong> Animal.
+            </p>
+
+            <p>
+                Um Aluno <strong>é uma</strong> Pessoa.
+            </p>
+
+            <p>
+                Um Professor <strong>é uma</strong> Pessoa.
+            </p>
+        </div>
+
+        <br>
+
+        <p class="yellow">
+            Regra prática: pense "X é um Y?" antes de criar uma herança.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 19 -->
+    <section class="slide">
+        <h2>Exemplo: Sistema Acadêmico</h2>
+
+        <pre><code>class Pessoa {
+
+    String nome;
+    String cpf;
+
+    void apresentar() {
+        System.out.println(
+            "Nome: " + nome
+        );
+    }
+}
+
+class Aluno extends Pessoa {
+
+    String matricula;
+
+    void estudar() {
+        System.out.println(
+            nome + " está estudando."
+        );
+    }
+}
+
+class Professor extends Pessoa {
+
+    String disciplina;
+
+    void ensinar() {
+        System.out.println(
+            nome + " está ensinando " + disciplina
+        );
+    }
+}</code></pre>
+    </section>
+
+
+    <!-- SLIDE 20 -->
+    <section class="slide">
+        <h2>Utilizando o sistema</h2>
+
+        <pre><code>Aluno aluno = new Aluno();
+
+aluno.nome = "João";
+aluno.cpf = "123";
+aluno.matricula = "2026001";
+
+aluno.apresentar();
+aluno.estudar();
+
+
+Professor professor = new Professor();
+
+professor.nome = "Maria";
+professor.disciplina = "Java";
+
+professor.apresentar();
+professor.ensinar();</code></pre>
+    </section>
+
+
+    <!-- SLIDE 21 -->
+    <section class="slide">
+        <h2>Herança + Polimorfismo</h2>
+
+        <p>
+            Uma referência da superclasse pode apontar para objetos
+            das subclasses.
+        </p>
+
+        <pre><code>Animal animal1 = new Cachorro();
+Animal animal2 = new Gato();
+
+animal1.emitirSom();
+animal2.emitirSom();</code></pre>
+
+        <br>
+
+        <p class="green">
+            Mesmo tipo de referência, comportamentos diferentes.
+        </p>
+
+        <p>
+            Isso é um dos fundamentos do
+            <span class="highlight">polimorfismo</span>.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 22 -->
+    <section class="slide">
+        <h2>Exercício 1</h2>
+
+        <div class="exercise">
+
+            <p>
+                Crie uma classe chamada <strong>Veiculo</strong>.
+            </p>
+
+            <br>
+
+            <p>
+                Ela deve possuir:
+            </p>
+
+            <ul>
+                <li>marca</li>
+                <li>modelo</li>
+                <li>método acelerar()</li>
+            </ul>
+
+            <br>
+
+            <p>
+                Depois crie:
+            </p>
+
+            <ul>
+                <li>Carro</li>
+                <li>Moto</li>
+            </ul>
+
+            <p>
+                As duas classes devem herdar de Veiculo.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- SLIDE 23 -->
+    <section class="slide">
+        <h2>Exercício 1 — Gabarito</h2>
+
+        <pre><code>class Veiculo {
+
+    String marca;
+    String modelo;
+
+    void acelerar() {
+        System.out.println("Veículo acelerando");
+    }
+}
+
+class Carro extends Veiculo {
+
+}
+
+class Moto extends Veiculo {
+
+}</code></pre>
+    </section>
+
+
+    <!-- SLIDE 24 -->
+    <section class="slide">
+        <h2>Exercício 2</h2>
+
+        <div class="exercise">
+
+            <p>
+                Crie uma classe <strong>Funcionario</strong>.
+            </p>
+
+            <ul>
+                <li>nome</li>
+                <li>salario</li>
+            </ul>
+
+            <br>
+
+            <p>
+                Depois crie:
+            </p>
+
+            <ul>
+                <li>Gerente</li>
+                <li>Desenvolvedor</li>
+            </ul>
+
+            <br>
+
+            <p>
+                Cada subclasse deve possuir um método
+                <strong>trabalhar()</strong> com uma mensagem diferente.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- SLIDE 25 -->
+    <section class="slide">
+        <h2>Exercício 3 — Desafio</h2>
+
+        <div class="exercise">
+
+            <p>
+                Desenvolva um pequeno sistema de veículos.
+            </p>
+
+            <br>
+
+            <p>Crie:</p>
+
+            <ul>
+                <li>Veiculo</li>
+                <li>Carro</li>
+                <li>Moto</li>
+                <li>Caminhao</li>
+            </ul>
+
+            <br>
+
+            <p>
+                Cada veículo deve sobrescrever o método
+                <strong>acelerar()</strong>.
+            </p>
+
+            <p>
+                Depois crie um vetor de Veiculo contendo
+                diferentes tipos de veículos.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- SLIDE 26 -->
+    <section class="slide">
+        <h2>Desafio — solução</h2>
+
+        <pre><code>class Veiculo {
+
+    void acelerar() {
+        System.out.println(
+            "Veículo acelerando"
+        );
+    }
+}
+
+class Carro extends Veiculo {
+
+    @Override
+    void acelerar() {
+        System.out.println(
+            "Carro acelerando..."
+        );
+    }
+}
+
+class Moto extends Veiculo {
+
+    @Override
+    void acelerar() {
+        System.out.println(
+            "Moto acelerando..."
+        );
+    }
+}
+
+class Caminhao extends Veiculo {
+
+    @Override
+    void acelerar() {
+        System.out.println(
+            "Caminhão acelerando..."
+        );
+    }
+}</code></pre>
+    </section>
+
+
+    <!-- SLIDE 27 -->
+    <section class="slide">
+        <h2>Revisão</h2>
+
+        <ul>
+            <li>O que é uma superclasse?</li>
+            <li>O que é uma subclasse?</li>
+            <li>Para que serve extends?</li>
+            <li>Para que serve super?</li>
+            <li>O que significa @Override?</li>
+            <li>Uma subclasse pode adicionar novos métodos?</li>
+            <li>O que significa "é um"?</li>
+            <li>Qual a relação entre herança e polimorfismo?</li>
+        </ul>
+    </section>
+
+
+    <!-- SLIDE 28 -->
+    <section class="slide">
+        <h2>Quiz rápido</h2>
+
+        <div class="card">
+            <p>
+                Qual palavra-chave é utilizada para criar uma relação
+                de herança entre classes em Java?
+            </p>
+
+            <br>
+
+            <p>
+                A) inherit
+            </p>
+
+            <p>
+                B) extends
+            </p>
+
+            <p>
+                C) implements
+            </p>
+
+            <p>
+                D) inherits
+            </p>
+
+            <br>
+
+            <p class="green">
+                Resposta: B) extends
+            </p>
+        </div>
+    </section>
+
+
+    <!-- SLIDE 29 -->
+    <section class="slide">
+        <h2>Quiz 2</h2>
+
+        <div class="card">
+
+            <p>
+                Qual anotação indica que um método está sobrescrevendo
+                um método da superclasse?
+            </p>
+
+            <br>
+
+            <p>A) @Inherit</p>
+            <p>B) @Super</p>
+            <p>C) @Override</p>
+            <p>D) @Extends</p>
+
+            <br>
+
+            <p class="green">
+                Resposta: C) @Override
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- SLIDE 30 -->
+    <section class="slide center">
+        <h1>Resumo</h1>
+
+        <p>
+            <span class="highlight">Herança</span> permite reutilizar
+            e especializar código.
+        </p>
+
+        <br>
+
+        <p>
+            <span class="highlight">extends</span> → cria a herança
+        </p>
+
+        <p>
+            <span class="highlight">super</span> → acessa a superclasse
+        </p>
+
+        <p>
+            <span class="highlight">@Override</span> → sobrescreve métodos
+        </p>
+
+        <br>
+
+        <p class="green">
+            Herança é uma das principais ferramentas da Programação
+            Orientada a Objetos.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 31 -->
+    <section class="slide center">
+        <h1>Atividade prática</h1>
+
+        <p class="subtitle">
+            Desenvolva um sistema utilizando herança em Java.
+        </p>
+
+        <br>
+
+        <p>
+            O sistema deve possuir pelo menos:
+        </p>
+
+        <ul>
+            <li>1 superclasse</li>
+            <li>3 subclasses</li>
+            <li>atributos</li>
+            <li>métodos</li>
+            <li>construtores</li>
+            <li>uso de super()</li>
+            <li>pelo menos um @Override</li>
+        </ul>
+
+        <br>
+
+        <p class="yellow">
+            Pense em um sistema de banco, escola, veículos,
+            loja ou empresa.
+        </p>
+    </section>
+
+
+    <!-- SLIDE 32 -->
+    <section class="slide center">
+        <h1>Obrigado!</h1>
+
+        <p class="subtitle">
+            Próxima etapa:
+            <strong>Polimorfismo em Java</strong>
+        </p>
+
+        <br>
+
+        <p>
+            Dúvidas?
+        </p>
+    </section>
+
+
+    <!-- CONTROLES -->
+    <div class="footer">
+
+        <div class="buttons">
+            <button id="prev" onclick="previousSlide()">
+                ← Anterior
+            </button>
+
+            <button id="next" onclick="nextSlide()">
+                Próximo →
+            </button>
+        </div>
+
+        <div class="page" id="page">
+            1 / 32
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
